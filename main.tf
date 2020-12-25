@@ -1,5 +1,4 @@
 resource "aws_s3_bucket" "tfe_installation_assets_s3_bucket" {
-  count         = var.create ? 1 : 0
   bucket        = var.s3_bucket_name
   acl           = "private"
   force_destroy = var.s3_force_delete
@@ -8,8 +7,7 @@ resource "aws_s3_bucket" "tfe_installation_assets_s3_bucket" {
 }
 
 resource "aws_s3_bucket_public_access_block" "tfe_installation_assets_s3_bucket" {
-  count  = var.create ? 1 : 0
-  bucket = aws_s3_bucket.tfe_installation_assets_s3_bucket[0].id
+  bucket = aws_s3_bucket.tfe_installation_assets_s3_bucket.id
 
   block_public_acls       = true
   block_public_policy     = true
@@ -35,7 +33,7 @@ locals {
 }
 
 resource "aws_s3_bucket_object" "tfe_installation_assets" {
-  for_each = var.create ? local.tfe_assets : {}
+  for_each = local.tfe_assets
   bucket   = aws_s3_bucket.tfe_installation_assets_s3_bucket[0].id
   key      = each.value.s3_object_key
   source   = each.value.local_path

@@ -30,7 +30,6 @@ The available input variables for the module are described in the table below.
 | tfe_certificate_path | `string` | | Path to the local file containing the SSL certificate to upload to the S3 bucket. |
 | tfe_certificate_key_path | `string` | | Path to the local file containing the SSL certificate private key to upload to the S3 bucket. |
 | tfe_license_path | `string` | | Path to the local file containing the TFE license to upload to the S3 bucket. |
-| create | `bool` | `true` | Whether to create the module resources. |
 | common_tags | `map(string)` | `{}` | Tags to apply to all resources. |
 
 ## Outputs
@@ -41,5 +40,5 @@ The outputs defined for the module are described in the table below.
 | -------- | ---- | ----------- |
 | tfe_cert | `string` | S3 path for the SSL certificate. |
 | tfe_cert_key | `string` | S3 path for the SSL certificate private key. |
-| tfe_ilcense | `string` | S3 path for the TFE license file. |
+| tfe_license | `string` | S3 path for the TFE license file. |
 | s3_bucket_name | `string` | The name of the S3 bucket. Should be the same as what is specidiead in the input variable s3_bucket_name or empty string if creation was disabled. |

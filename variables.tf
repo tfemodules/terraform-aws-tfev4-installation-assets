@@ -24,12 +24,6 @@ variable "tfe_license_path" {
   description = "Path to the local file containing the TFE license to upload to the S3 bucket."
 }
 
-variable "create" {
-  type        = bool
-  description = "Whether to create the module resources."
-  default     = true
-}
-
 variable "common_tags" {
   type        = map(string)
   description = "Tags to apply to all resources."
