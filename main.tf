@@ -34,7 +34,7 @@ locals {
 
 resource "aws_s3_bucket_object" "tfe_installation_assets" {
   for_each = local.tfe_assets
-  bucket   = aws_s3_bucket.tfe_installation_assets_s3_bucket[0].id
+  bucket   = aws_s3_bucket.tfe_installation_assets_s3_bucket.id
   key      = each.value.s3_object_key
   source   = each.value.local_path
   etag     = filemd5(each.value.local_path)
