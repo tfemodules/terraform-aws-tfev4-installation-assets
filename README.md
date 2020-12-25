@@ -27,9 +27,12 @@ The available input variables for the module are described in the table below.
 | -------- | ---- | ------- | ----------- |
 | s3_bucket_name | `string` | | Name of the s3 bucket to create. |
 | s3_force_delete | `bool` | `true` | Whether all objects (including any locked objects) should be deleted from the bucket so that the bucket can be destroyed without error. |
-| tfe_certificate_path | `string` | | Path to the local file containing the SSL certificate to upload to the S3 bucket. |
-| tfe_certificate_key_path | `string` | | Path to the local file containing the SSL certificate private key to upload to the S3 bucket. |
-| tfe_license_path | `string` | | Path to the local file containing the TFE license to upload to the S3 bucket. |
+| tfe_certificate_path | `string` | `null` | Path to the local file containing the SSL certificate to upload to the S3 bucket. Required unless tfe_certificate is provided. |
+| tfe_certificate | `string` | `null` | SSL certificate to upload to the S3 bucket. Considered only if tfe_certificate_path is not provided. |
+| tfe_certificate_key_path | `string` | `null` | Path to the local file containing the SSL certificate private key to upload to the S3 bucket. Required unless tfe_certificate_key is provided. |
+| tfe_certificate_key | `string` | `null` | SSL certificate private key to upload to the S3 bucket. Considered only if tfe_certificate_key_path is not provided. |
+| tfe_license_path | `string` | `null` | Path to the local file containing the TFE license to upload to the S3 bucket. Required unless tfe_license_b64 is provided. |
+| tfe_license_b64 | `string` | `null` | Base64 encoded TFE license to upload to the S3 bucket. Considered only if tfe_license_path is not provided. |
 | common_tags | `map(string)` | `{}` | Tags to apply to all resources. |
 
 ## Outputs

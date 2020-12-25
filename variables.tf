@@ -11,17 +11,38 @@ variable "s3_force_delete" {
 
 variable "tfe_certificate_path" {
   type        = string
-  description = "Path to the local file containing the SSL certificate to upload to the S3 bucket."
+  description = "Path to the local file containing the SSL certificate to upload to the S3 bucket. Required unless tfe_certificate is provided."
+  default     = null
+}
+
+variable "tfe_certificate" {
+  type        = string
+  description = "SSL certificate to upload to the S3 bucket. Considered only if tfe_certificate_path is not provided."
+  default     = null
 }
 
 variable "tfe_certificate_key_path" {
   type        = string
-  description = "Path to the local file containing the SSL certificate private key to upload to the S3 bucket."
+  description = "Path to the local file containing the SSL certificate private key to upload to the S3 bucket. Required unless tfe_certificate_key is provided."
+  default     = null
+}
+
+variable "tfe_certificate_key" {
+  type        = string
+  description = "SSL certificate private key to upload to the S3 bucket. Considered only if tfe_certificate_key_path is not provided."
+  default     = null
 }
 
 variable "tfe_license_path" {
   type        = string
-  description = "Path to the local file containing the TFE license to upload to the S3 bucket."
+  description = "Path to the local file containing the TFE license to upload to the S3 bucket. Required unless tfe_license_b64 is provided."
+  default     = null
+}
+
+variable "tfe_license_b64" {
+  type        = string
+  description = "Base64 encoded TFE license to upload to the S3 bucket. Considered only if tfe_license_path is not provided."
+  default     = null
 }
 
 variable "common_tags" {
