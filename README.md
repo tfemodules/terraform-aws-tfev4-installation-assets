@@ -13,11 +13,7 @@ The Terraform configuration provisions:
   - The private key to the SSL certificate
   - TFE license file.
 
-**Caveat:** The S3 objects are created from local files. If these files change or are missing on subsequent runs, the TFE configuration will update the files or throw an error if they are missing. 
-
-## Usage
-
-For instructions on how to run Terraform configuration refer to the root module [readme](../README.md#Usage).
+**Caveat:** If the S3 objects are created from local files. If these files change or are missing on subsequent runs, the TFE configuration will update the files or throw an error if they are missing.
 
 ## Input Variables
 
