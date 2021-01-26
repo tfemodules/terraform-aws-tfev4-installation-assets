@@ -49,7 +49,7 @@ Below are some commands on how to obtain the values for some of the input variab
 * Remove new lines from a PEM encoded certificate
 
   ```bash
-  cat cert.pem | tr -d '\n\r'
+  sed 's/$/\\n/' certificate.pem | tr -d '\r\n'
   ```
   The output of the command will be a single line string that can be provided to the `tfe_certificate` and `tfe_certificate_key` variables.
 
