@@ -58,7 +58,7 @@ The outputs defined for the module are described in the table below.
 | tfe_cert | `string` | S3 path for the SSL certificate. |
 | tfe_cert_key | `string` | S3 path for the SSL certificate private key. |
 | tfe_license | `string` | S3 path for the TFE license file. |
-| s3_bucket_name | `string` | The name of the S3 bucket. Should be the same as what is specidiead in the input variable s3_bucket_name or empty string if creation was disabled. |
+| s3_bucket_name | `string` | The name of the S3 bucket. Should be the same as what is specified in the input variable s3_bucket_name or empty string if creation was disabled. |
 
 ## Example
 
